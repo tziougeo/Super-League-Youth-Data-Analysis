@@ -2,9 +2,9 @@
 
 **Do Greek clubs give young players a chance, does playing time build market value, and who profits from it?**
 
-An end-to-end analysis of 14 Super League Greece seasons (2012/13 – 2025/26) using **SQL Server** for data cleaning and analysis and **Power BI** for an interactive three-page dashboard.
+An end to end analysis of 14 Super League Greece seasons (2012/13 – 2025/26) using **SQL Server** for data cleaning and analysis and **Power BI** for an interactive three-page dashboard.
 
-![League Overview](images/dashboard_overview.png)
+![League Overview](images/Overview.png)
 
 ---
 
@@ -196,13 +196,13 @@ Calculated columns `Minutes Band` / `Minutes Band Order` group players by U21 mi
 ## Dashboard
 
 **Page 1 – League Overview:** U21 share and number of U21 players per season, filterable by club and season.
-![League Overview](images/dashboard_overview.png)
+![League Overview](images/Overview.png)
 
 **Page 2 – Clubs:** who gives minutes vs. who earns from youth, plus all youth player sales.
-![Clubs](images/dashboard_clubs.png)
+![Clubs](images/Clubs.png)
 
 **Page 3 – Player Value:** median value growth by minutes band, minutes vs. value scatter, top 15 players.
-![Player Value](images/dashboard_player_value.png)
+![Player Value](images/Player_Value.png)
 
 
 
