@@ -76,17 +76,17 @@ This project tests that claim with data. As a youth football coach (currently wi
 ## Project Structure
 
 ```
-super-league-youth-analysis/
+Super-League-Youth-Data-Analysis/
 ├── README.md
 ├── sql/
 │   └── super_league_youth_analysis.sql    # exploration, cleaning, analysis
 ├── powerbi/
-│   ├── super_league_youth_dashboard.pbix
-│   
+│   └── Super_League_Youth.pbix
 └── images/
-    ├── dashboard_overview.png
-    ├── dashboard_clubs.png
-    └── dashboard_player_value.png
+    ├── Overview.png
+    ├── Clubs.png
+    ├── Player_Value.png
+    └── data_model.png
 ```
 
 ---
