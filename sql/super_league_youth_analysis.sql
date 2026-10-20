@@ -217,6 +217,22 @@ FROM gr_appearances
 GROUP BY season, season_label
 ORDER BY season;
 
+----3.3b Q2: Investigate the 2020/21 spike: U21 minutes share per club, 2019/20 to 2021/22
+--     A league-wide rise that reverses the next season suggests a season-specific factor (likely COVID-19)
+SELECT
+    c.club_name,
+    CAST(100.0 * SUM(CASE WHEN a.season = 2019 AND a.is_u21 = 1 THEN a.minutes_played ELSE 0 END)
+         / NULLIF(SUM(CASE WHEN a.season = 2019 THEN a.minutes_played ELSE 0 END), 0) AS DECIMAL(5,2)) AS pct_2019_20,
+    CAST(100.0 * SUM(CASE WHEN a.season = 2020 AND a.is_u21 = 1 THEN a.minutes_played ELSE 0 END)
+         / NULLIF(SUM(CASE WHEN a.season = 2020 THEN a.minutes_played ELSE 0 END), 0) AS DECIMAL(5,2)) AS pct_2020_21,
+    CAST(100.0 * SUM(CASE WHEN a.season = 2021 AND a.is_u21 = 1 THEN a.minutes_played ELSE 0 END)
+         / NULLIF(SUM(CASE WHEN a.season = 2021 THEN a.minutes_played ELSE 0 END), 0) AS DECIMAL(5,2)) AS pct_2021_22
+FROM gr_appearances a
+JOIN gr_clubs c ON a.club_id = c.club_id
+WHERE a.season BETWEEN 2019 AND 2021
+GROUP BY c.club_id, c.club_name
+ORDER BY pct_2020_21 DESC;
+
 ----3.4 Q3: Build a summary table of all players who played as U21 in the Super League
 
 ----first_value = earliest recorded market value, peak_value = highest recorded market value
@@ -419,3 +435,10 @@ SET club_short_name =
 SELECT club_id, club_name, club_short_name
 FROM gr_clubs
 ORDER BY club_short_name;
+
+----4.3 Data quality check: short names shared by more than one club (expected: no rows)
+--     Guards against pattern collisions such as '%Aris%' matching 'Larisas'
+SELECT club_short_name, COUNT(*) AS clubs, STRING_AGG(club_name, ' | ') AS full_names
+FROM gr_clubs
+GROUP BY club_short_name
+HAVING COUNT(*) > 1;
