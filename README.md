@@ -20,7 +20,7 @@ An end-to-end analysis of 14 Super League Greece seasons (2012/13 – 2025/26) u
 - [Recommendations](#recommendations)
 - [Limitations](#limitations)
 - [Dashboard](#dashboard)
-- [How to Reproduce](#how-to-reproduce)
+
 
 ---
 
@@ -82,7 +82,7 @@ super-league-youth-analysis/
 │   └── super_league_youth_analysis.sql    # exploration, cleaning, analysis
 ├── powerbi/
 │   ├── super_league_youth_dashboard.pbix
-│   └── super_league_youth_green_theme.json
+│   
 └── images/
     ├── dashboard_overview.png
     ├── dashboard_clubs.png
@@ -204,14 +204,9 @@ Calculated columns `Minutes Band` / `Minutes Band Order` group players by U21 mi
 **Page 3 – Player Value:** median value growth by minutes band, minutes vs. value scatter, top 15 players.
 ![Player Value](images/dashboard_player_value.png)
 
----
 
-## How to Reproduce
 
-1. Download the dataset from [Kaggle](https://www.kaggle.com/datasets/davidcariboo/player-scores).
-2. In SSMS, create a database `SuperLeagueYouth` and import the 7 CSV files with **Import Flat File** as `raw_<name>` (all columns nullable, `int` instead of `smallint`, `nvarchar(255)` for text, `transfer_fee` and `market_value_in_eur` in `raw_transfers` as text).
-3. Run `sql/super_league_youth_analysis.sql` section by section.
-4. Open `powerbi/super_league_youth_dashboard.pbix` and update the server name under **Transform data → Data source settings**.
+
 
 ---
 
