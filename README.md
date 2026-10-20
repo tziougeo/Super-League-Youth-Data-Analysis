@@ -210,4 +210,4 @@ Calculated columns `Minutes Band` / `Minutes Band Order` group players by U21 mi
 
 ---
 
-**Author:** Georgios Tziouvelis · [Other projects](#https://github.com/tziougeo/Superstore-Sales-Analysis)
+**Author:** Georgios Tziouvelis · [Other projects](https://github.com/tziougeo/Superstore-Sales-Analysis)
